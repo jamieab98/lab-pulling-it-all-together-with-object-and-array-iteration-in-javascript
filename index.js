@@ -118,20 +118,27 @@ function gameObject() {
 let gameStats = gameObject();
 //console.log(gameStats);
 
-let typesOfTeam = Object.keys(gameStats);
+//let typesOfTeam = Object.keys(gameStats);
 //console.log(typesOfTeam);
 
-let homeRoster = Object.keys(gameStats.home.players);
-console.log(homeRoster);
+//let homeRoster = Object.keys(gameStats.home.players);
+//console.log(homeRoster);
 
 let statsByHomePlayers = Object.values(gameStats.home.players);
 //console.log(statsByHomePlayers);
 
 let homePlayer1Stats = statsByHomePlayers[0];
-console.log(homePlayer1Stats)
+//console.log(homePlayer1Stats)
 
 let homePlayer1Points = homePlayer1Stats.points;
-console.log(homePlayer1Points);
+//console.log(homePlayer1Points);
+
+let arrayOfPlayers = [];
+arrayOfPlayers.push(...Object.keys(gameStats.home.players));
+arrayOfPlayers.push(...Object.keys(gameStats.away.players));
+console.log(arrayOfPlayers);
+
+
 
 function numPointsScored() {
 
