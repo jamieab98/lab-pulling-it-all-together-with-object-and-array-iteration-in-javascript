@@ -114,3 +114,22 @@ function gameObject() {
         },
     };
 }
+
+let gameStats = gameObject();
+//console.log(gameStats);
+
+let typesOfTeam = Object.keys(gameStats);
+//console.log(typesOfTeam);
+
+let homeRoster = Object.keys(gameStats.home.players);
+console.log(homeRoster);
+
+let statsByHomePlayer = Object.values(gameStats.home.players);
+console.log(statsByHomePlayer);
+
+let listOfHomePoints = [];
+console.log(listOfHomePoints);
+
+function numPointsScored() {
+
+}
