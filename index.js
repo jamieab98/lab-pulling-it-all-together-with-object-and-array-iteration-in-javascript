@@ -124,11 +124,14 @@ let typesOfTeam = Object.keys(gameStats);
 let homeRoster = Object.keys(gameStats.home.players);
 console.log(homeRoster);
 
-let statsByHomePlayer = Object.values(gameStats.home.players);
-console.log(statsByHomePlayer);
+let statsByHomePlayers = Object.values(gameStats.home.players);
+//console.log(statsByHomePlayers);
 
-let listOfHomePoints = [];
-console.log(listOfHomePoints);
+let homePlayer1Stats = statsByHomePlayers[0];
+console.log(homePlayer1Stats)
+
+let homePlayer1Points = homePlayer1Stats.points;
+console.log(homePlayer1Points);
 
 function numPointsScored() {
 
