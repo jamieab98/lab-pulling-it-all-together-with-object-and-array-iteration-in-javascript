@@ -147,20 +147,19 @@ while (i < Object.keys(gameStats.home.players).length) {
 let z = 0;
 while (z < Object.keys(gameStats.away.players).length) {
     let temp = statsByAwayPlayers[z].points;
-    console.log(z);
     awayPoints.push(temp);
     z++;
 }
 
-console.log(homePoints);
-console.log(awayPoints);
-
 let arrayOfPlayers = [];
 arrayOfPlayers.push(...Object.keys(gameStats.home.players));
 arrayOfPlayers.push(...Object.keys(gameStats.away.players));
-//console.log(arrayOfPlayers);
+console.log(arrayOfPlayers);
 
 let arrayOfPoints = [];
+arrayOfPoints.push(...homePoints);
+arrayOfPoints.push(...awayPoints);
+console.log(arrayOfPoints);
 
 function numPointsScored() {
 
