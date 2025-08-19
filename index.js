@@ -125,20 +125,42 @@ let gameStats = gameObject();
 //console.log(homeRoster);
 
 let statsByHomePlayers = Object.values(gameStats.home.players);
+let statsByAwayPlayers = Object.values(gameStats.away.players);
 //console.log(statsByHomePlayers);
 
-let homePlayer1Stats = statsByHomePlayers[0];
+//let homePlayer1Stats = statsByHomePlayers[0];
 //console.log(homePlayer1Stats)
 
-let homePlayer1Points = homePlayer1Stats.points;
+//let homePlayer1Points = statsByHomePlayers[0].points;
 //console.log(homePlayer1Points);
+
+let homePoints = [];
+let awayPoints = [];
+
+let i = 0;
+while (i < Object.keys(gameStats.home.players).length) {
+    let temp = statsByHomePlayers[i].points;
+    homePoints.push(temp);
+    i++;
+}
+
+let z = 0;
+while (z < Object.keys(gameStats.away.players).length) {
+    let temp = statsByAwayPlayers[z].points;
+    console.log(z);
+    awayPoints.push(temp);
+    z++;
+}
+
+console.log(homePoints);
+console.log(awayPoints);
 
 let arrayOfPlayers = [];
 arrayOfPlayers.push(...Object.keys(gameStats.home.players));
 arrayOfPlayers.push(...Object.keys(gameStats.away.players));
-console.log(arrayOfPlayers);
+//console.log(arrayOfPlayers);
 
-
+let arrayOfPoints = [];
 
 function numPointsScored() {
 
