@@ -136,6 +136,8 @@ let statsByAwayPlayers = Object.values(gameStats.away.players);
 
 let homePoints = [];
 let awayPoints = [];
+let homeShoeSize = [];
+let awayShoeSize = [];
 
 let i = 0;
 while (i < Object.keys(gameStats.home.players).length) {
@@ -151,6 +153,20 @@ while (z < Object.keys(gameStats.away.players).length) {
     z++;
 }
 
+let a = 0;
+while (a < Object.keys(gameStats.home.players).length) {
+    let temp = statsByHomePlayers[a].shoe;
+    homeShoeSize.push(temp);
+    a++;
+}
+
+let b = 0;
+while (b < Object.keys(gameStats.away.players).length) {
+    let temp = statsByAwayPlayers[b].shoe;
+    awayShoeSize.push(temp);
+    b++;
+}
+
 let arrayOfPlayers = [];
 arrayOfPlayers.push(...Object.keys(gameStats.home.players));
 arrayOfPlayers.push(...Object.keys(gameStats.away.players));
@@ -159,12 +175,27 @@ let arrayOfPoints = [];
 arrayOfPoints.push(...homePoints);
 arrayOfPoints.push(...awayPoints);
 
+let arrayOfShoeSize = [];
+arrayOfShoeSize.push(...homeShoeSize);
+arrayOfShoeSize.push(...awayShoeSize);
+
 const playerPoints = {};
 arrayOfPlayers.forEach((player, index) => {
     playerPoints[player] = arrayOfPoints[index];
 });
 
+const playerShoeSize = {};
+arrayOfPlayers.forEach((player, index) => {
+    playerShoeSize[player] = arrayOfShoeSize[index];
+});
+
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
     return playerPoint;
+}
+
+function shoeSize(playerName) {
+    const playerShoe = (playerShoeSize[playerName]);
+    console.log(playerShoe);
+    return playerShoe;
 }
