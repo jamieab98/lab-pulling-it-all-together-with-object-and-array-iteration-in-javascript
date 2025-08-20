@@ -201,6 +201,31 @@ awayTeamsColors[propertyNameAway] = awayTeamColorArray;
 
 const teamColorsObject = Object.assign({}, homeTeamsColors, awayTeamsColors);
 
+let homeJerseyNumbersArray = [];
+let awayJerseyNumbersArray = [];
+
+let c = 0;
+while (c < Object.values(gameStats.home.players).length) {
+    homeJerseyNumbersArray.push(Object.values(gameStats.home.players)[c].number);
+    c++;
+}
+
+let d = 0;
+while (d < Object.values(gameStats.away.players).length) {
+    awayJerseyNumbersArray.push(Object.values(gameStats.away.players)[d].number);
+    d++;
+}
+
+const homeTeamJerseyNumbers = {};
+const homeKeyName = propertyNameHome;
+homeTeamJerseyNumbers[homeKeyName] = homeJerseyNumbersArray;
+
+const awayTeamJerseyNumbers = {};
+const awayKeyName = propertyNameAway;
+awayTeamJerseyNumbers[awayKeyName] = awayJerseyNumbersArray;
+
+const teamJerseyNumbers = Object.assign({}, homeTeamJerseyNumbers, awayTeamJerseyNumbers);
+
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
     return playerPoint;
@@ -218,4 +243,9 @@ function teamColors(teamName) {
 
 function teamNames() {
     return Object.keys(teamColorsObject);
+}
+
+function playerNumbers(teamName) {
+    const listOfJerseyNumbers = (teamJerseyNumbers[teamName]);
+    return listOfJerseyNumbers;
 }
