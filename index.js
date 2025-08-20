@@ -246,9 +246,5 @@ function playerNumbers(teamName) {
 
 function playerStats(playerName) {
     const specificPlayerStats = playersStats[playerName];
-    console.log(specificPlayerStats)
     return specificPlayerStats
 }
-
-playerStats('Alan Anderson')
-playerStats('Brendan Hayword')
