@@ -220,6 +220,20 @@ let playersStats = Object.fromEntries(
     arrayOfPlayers.map((player, index) => [player, arrayOfPlayersStats[index]])
 );
 
+console.log(Object.values(gameStats.home.players)[0].shoe);
+let arrayOfHomeShoe = [];
+let arrayOfAwayShoe = [];
+
+let e = 0;
+while (e < Object.values(gameStats.home.players).length) {
+    arrayOfHomeShoe.push(Object.values(gameStats.home.players)[e].shoe);
+    arrayOfAwayShoe.push(Object.values(gameStats.away.players)[e].shoe);    
+    e++
+}
+
+let arrayOfPlayersShoe = [...arrayOfHomeShoe, ...arrayOfAwayShoe];
+console.log(arrayOfPlayersShoe);
+
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
     return playerPoint;
