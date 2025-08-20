@@ -229,13 +229,21 @@ const teamJerseyNumbers = Object.assign({}, homeTeamJerseyNumbers, awayTeamJerse
 const playerComms = {};
 
 let homePlayerStats = {};
+console.log(Object.entries(gameStats.home.players)[0][0]);
 let e = 0;
 while (e < Object.values(gameStats.home.players).length) {
-    updatingStats = Object.values(gameStats.home.players)[e];
-    homePlayerStats = {...updatingStats}
-    e++;
+    let updatatingRoster = [];
 }
-console.log(homePlayerStats);
+const listOfHomePlayers = (Object.entries(gameStats.home.players)[1][0]);
+console.log(listOfHomePlayers);
+
+//let e = 0;
+/*while (e < Object.values(gameStats.home.players).length) {
+    updatingStats = Object.values(gameStats.home.players)[e];
+    console.log(updatingStats);
+    homePlayerStats = {...updatingStats};
+    e++;
+}*/
 
 
 function numPointsScored(playerName) {
