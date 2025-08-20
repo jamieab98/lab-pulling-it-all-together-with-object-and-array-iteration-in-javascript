@@ -215,3 +215,7 @@ function teamColors(teamName) {
     const colorsOfTeam = (teamColorsObject[teamName]);
     return colorsOfTeam;
 }
+
+function teamNames() {
+    return Object.keys(teamColorsObject);
+}
