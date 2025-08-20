@@ -116,23 +116,9 @@ function gameObject() {
 }
 
 let gameStats = gameObject();
-//console.log(gameStats);
-
-//let typesOfTeam = Object.keys(gameStats);
-//console.log(typesOfTeam);
-
-//let homeRoster = Object.keys(gameStats.home.players);
-//console.log(homeRoster);
 
 let statsByHomePlayers = Object.values(gameStats.home.players);
 let statsByAwayPlayers = Object.values(gameStats.away.players);
-//console.log(statsByHomePlayers);
-
-//let homePlayer1Stats = statsByHomePlayers[0];
-//console.log(homePlayer1Stats)
-
-//let homePlayer1Points = statsByHomePlayers[0].points;
-//console.log(homePlayer1Points);
 
 let homePoints = [];
 let awayPoints = [];
@@ -226,25 +212,13 @@ awayTeamJerseyNumbers[awayKeyName] = awayJerseyNumbersArray;
 
 const teamJerseyNumbers = Object.assign({}, homeTeamJerseyNumbers, awayTeamJerseyNumbers);
 
-const playerComms = {};
-
-let homePlayerStats = {};
-console.log(Object.entries(gameStats.home.players)[0][0]);
-let e = 0;
-while (e < Object.values(gameStats.home.players).length) {
-    let updatatingRoster = [];
-}
-const listOfHomePlayers = (Object.entries(gameStats.home.players)[1][0]);
-console.log(listOfHomePlayers);
-
-//let e = 0;
-/*while (e < Object.values(gameStats.home.players).length) {
-    updatingStats = Object.values(gameStats.home.players)[e];
-    console.log(updatingStats);
-    homePlayerStats = {...updatingStats};
-    e++;
-}*/
-
+let arrayOfStatNames = Object.keys(Object.values(gameStats.home.players)[0]);
+let arrayOfHomeStats = Object.values(gameStats.home.players);
+let arrayOfAwayStats = Object.values(gameStats.away.players);
+let arrayOfPlayersStats = [...arrayOfHomeStats, ...arrayOfAwayStats];
+let playersStats = Object.fromEntries(
+    arrayOfPlayers.map((player, index) => [player, arrayOfPlayersStats[index]])
+);
 
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
@@ -269,3 +243,12 @@ function playerNumbers(teamName) {
     const listOfJerseyNumbers = (teamJerseyNumbers[teamName]);
     return listOfJerseyNumbers;
 }
+
+function playerStats(playerName) {
+    const specificPlayerStats = playersStats[playerName];
+    console.log(specificPlayerStats)
+    return specificPlayerStats
+}
+
+playerStats('Alan Anderson')
+playerStats('Brendan Hayword')
