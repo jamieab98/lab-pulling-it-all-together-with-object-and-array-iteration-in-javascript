@@ -220,19 +220,28 @@ let playersStats = Object.fromEntries(
     arrayOfPlayers.map((player, index) => [player, arrayOfPlayersStats[index]])
 );
 
-console.log(Object.values(gameStats.home.players)[0].shoe);
 let arrayOfHomeShoe = [];
 let arrayOfAwayShoe = [];
+let arrayOfHomeRebounds = [];
+let arrayOfAwayRebounds = [];
 
 let e = 0;
 while (e < Object.values(gameStats.home.players).length) {
     arrayOfHomeShoe.push(Object.values(gameStats.home.players)[e].shoe);
-    arrayOfAwayShoe.push(Object.values(gameStats.away.players)[e].shoe);    
+    arrayOfAwayShoe.push(Object.values(gameStats.away.players)[e].shoe);
+    arrayOfHomeRebounds.push(Object.values(gameStats.home.players)[e].rebounds);
+    arrayOfAwayRebounds.push(Object.values(gameStats.away.players)[e].rebounds);
     e++
 }
 
 let arrayOfPlayersShoe = [...arrayOfHomeShoe, ...arrayOfAwayShoe];
-console.log(arrayOfPlayersShoe);
+let arrayOfPlayersRebounds = [...arrayOfHomeRebounds, ...arrayOfAwayRebounds];
+const playerShoe = Object.fromEntries(
+    arrayOfPlayers.map((player, index) => [player, arrayOfPlayersShoe[index]])
+);
+const playerRebounds = Object.fromEntries(
+    arrayOfPlayers.map((player, index) => [player, arrayOfPlayersRebounds[index]])
+);
 
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
@@ -262,3 +271,20 @@ function playerStats(playerName) {
     const specificPlayerStats = playersStats[playerName];
     return specificPlayerStats
 }
+
+function bigShoeRebounds() {
+    const shoe = Object.values(playerShoe);
+    const largestShoe = Math.max(...shoe);
+    let f = 0;
+    let biggestShoeUser;
+    while (f < shoe.length) {
+        let shoeUser = Object.keys(playerShoe)[f];
+        if (largestShoe == Object.values(playerShoe)[f]) {
+            biggestShoeUser = shoeUser;
+        }
+        f++
+    }
+    return (playerRebounds[biggestShoeUser]);
+}
+
+bigShoeRebounds()
