@@ -226,6 +226,18 @@ awayTeamJerseyNumbers[awayKeyName] = awayJerseyNumbersArray;
 
 const teamJerseyNumbers = Object.assign({}, homeTeamJerseyNumbers, awayTeamJerseyNumbers);
 
+const playerComms = {};
+
+let homePlayerStats = {};
+let e = 0;
+while (e < Object.values(gameStats.home.players).length) {
+    updatingStats = Object.values(gameStats.home.players)[e];
+    homePlayerStats = {...updatingStats}
+    e++;
+}
+console.log(homePlayerStats);
+
+
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
     return playerPoint;
