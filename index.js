@@ -282,9 +282,7 @@ function bigShoeRebounds() {
         if (largestShoe == Object.values(playerShoe)[f]) {
             biggestShoeUser = shoeUser;
         }
-        f++
+        f++;
     }
     return (playerRebounds[biggestShoeUser]);
 }
-
-bigShoeRebounds()
