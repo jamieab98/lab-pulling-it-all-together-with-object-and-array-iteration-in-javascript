@@ -189,6 +189,18 @@ arrayOfPlayers.forEach((player, index) => {
     playerShoeSize[player] = arrayOfShoeSize[index];
 });
 
+const homeTeamsColors = {};
+const homeTeamColorArray = Object.values(gameStats.home.colors);
+const propertyNameHome = Object.values(gameStats.home.teamName).join('');
+homeTeamsColors[propertyNameHome] = homeTeamColorArray;
+
+const awayTeamsColors = {};
+const awayTeamColorArray = Object.values(gameStats.away.colors);
+const propertyNameAway = Object.values(gameStats.away.teamName).join('');
+awayTeamsColors[propertyNameAway] = awayTeamColorArray;
+
+const teamColorsObject = Object.assign({}, homeTeamsColors, awayTeamsColors);
+
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
     return playerPoint;
@@ -196,6 +208,10 @@ function numPointsScored(playerName) {
 
 function shoeSize(playerName) {
     const playerShoe = (playerShoeSize[playerName]);
-    console.log(playerShoe);
     return playerShoe;
+}
+
+function teamColors(teamName) {
+    const colorsOfTeam = (teamColorsObject[teamName]);
+    return colorsOfTeam;
 }
