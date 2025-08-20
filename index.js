@@ -212,7 +212,6 @@ awayTeamJerseyNumbers[awayKeyName] = awayJerseyNumbersArray;
 
 const teamJerseyNumbers = Object.assign({}, homeTeamJerseyNumbers, awayTeamJerseyNumbers);
 
-let arrayOfStatNames = Object.keys(Object.values(gameStats.home.players)[0]);
 let arrayOfHomeStats = Object.values(gameStats.home.players);
 let arrayOfAwayStats = Object.values(gameStats.away.players);
 let arrayOfPlayersStats = [...arrayOfHomeStats, ...arrayOfAwayStats];
@@ -247,30 +246,36 @@ function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
     return playerPoint;
 }
+numPointsScored('Alan Anderson');
 
 function shoeSize(playerName) {
     const playerShoe = (playerShoeSize[playerName]);
     return playerShoe;
 }
+shoeSize('Alan Anderson');
 
 function teamColors(teamName) {
     const colorsOfTeam = (teamColorsObject[teamName]);
     return colorsOfTeam;
 }
+teamColors('Brooklyn Nets');
 
 function teamNames() {
     return Object.keys(teamColorsObject);
 }
+teamNames();
 
 function playerNumbers(teamName) {
     const listOfJerseyNumbers = (teamJerseyNumbers[teamName]);
     return listOfJerseyNumbers;
 }
+playerNumbers('Brooklyn Nets');
 
 function playerStats(playerName) {
     const specificPlayerStats = playersStats[playerName];
     return specificPlayerStats
 }
+playerStats('Alan Anderson');
 
 function bigShoeRebounds() {
     const shoe = Object.values(playerShoe);
@@ -286,3 +291,4 @@ function bigShoeRebounds() {
     }
     return (playerRebounds[biggestShoeUser]);
 }
+bigShoeRebounds();
