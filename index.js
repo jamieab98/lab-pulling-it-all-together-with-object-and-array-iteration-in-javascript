@@ -244,19 +244,35 @@ const playerRebounds = Object.fromEntries(
 
 function numPointsScored(playerName) {
     const playerPoint = (playerPoints[playerName]);
+    if (!arrayOfPlayers.includes(playerName)) {
+        console.log('The input does not match one of the players');
+    }
+    else {
     return playerPoint;
+    }
 }
 numPointsScored('Alan Anderson');
 
 function shoeSize(playerName) {
     const playerShoe = (playerShoeSize[playerName]);
+    if (!arrayOfPlayers.includes(playerName)) {
+        console.log('The input does not match one of the players');
+    }
+    else {
     return playerShoe;
+    }
 }
 shoeSize('Alan Anderson');
 
 function teamColors(teamName) {
     const colorsOfTeam = (teamColorsObject[teamName]);
-    return colorsOfTeam;
+    if (teamName == gameStats.home.teamName) {
+        return colorsOfTeam;
+    } else if (teamName == gameStats.away.teamName) {
+        return colorsOfTeam;
+    } else {
+        console.log('The input does not match one of the team names')
+    }
 }
 teamColors('Brooklyn Nets');
 
@@ -267,13 +283,23 @@ teamNames();
 
 function playerNumbers(teamName) {
     const listOfJerseyNumbers = (teamJerseyNumbers[teamName]);
-    return listOfJerseyNumbers;
+    if (teamName == gameStats.home.teamName) {
+        return listOfJerseyNumbers
+    } else if (teamName == gameStats.away.teamName) {
+        return listOfJerseyNumbers
+    } else{
+        console.log('The input does not match one of the team names');
+    }
 }
 playerNumbers('Brooklyn Nets');
 
 function playerStats(playerName) {
     const specificPlayerStats = playersStats[playerName];
+    if (!arrayOfPlayers.includes(playerName)) {
+        console.log('The input does not match one of the players');
+    } else {
     return specificPlayerStats
+    }
 }
 playerStats('Alan Anderson');
 
@@ -291,4 +317,4 @@ function bigShoeRebounds() {
     }
     return (playerRebounds[biggestShoeUser]);
 }
-bigShoeRebounds();
+//bigShoeRebounds();
